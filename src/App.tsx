@@ -5,6 +5,14 @@ import { Button } from './components/Button';
 import { ProductList } from './components/ProductList/ProductList';
 import { UserForm } from './components/UserForm/UserForm';
 import { User } from './components/UserForm/UserForm';
+import { Alert } from './components/Alert';
+import { UserRoleBadge } from './components/UserRoleBadge';
+import { ShippingStatus } from './components/ShippingStatus/ShippingStatus';
+import { ShippingStatusEnum } from './components/ShippingStatus/types';
+import { StatusBadge } from './components/StatusBadge/StatusBadge';
+import { StatusBadgeEnum } from './components/StatusBadge/types';
+import { ProductCard } from './components/ProductCard/ProductCard';
+import { ProductCategoryEnum } from './components/ProductCard/types';
 
 function App() {
   // priima duomenis is vaikinio elemento:
@@ -48,6 +56,20 @@ function App() {
         ]}
       />
       <UserForm onSubmit={handleUserForm} />
+      <Alert type="success" message="Sekme!" />
+      <Alert type="warning" message="Normalu" />
+      <Alert type="error" message="Sugedo..." />
+      <UserRoleBadge role="editor" name="John" />
+      <UserRoleBadge role="viewer" name="Ruta" />
+      <UserRoleBadge role="admin" name="Mary" />
+      <ShippingStatus id={312} status={ShippingStatusEnum.Delivered} />
+      <ShippingStatus id={312} status={ShippingStatusEnum.Pending} />
+      <StatusBadge status={StatusBadgeEnum.InProgress}/>
+      <StatusBadge status={StatusBadgeEnum.Completed}/>
+      <StatusBadge status={StatusBadgeEnum.Pending}/>
+      <ProductCard title={'Samsung Galaxy'} category={ProductCategoryEnum.Electronics}/>
+      <ProductCard title={'Harry Potter'} category={ProductCategoryEnum.Books}/>
+      <ProductCard title={'Swimming Suit'} category={ProductCategoryEnum.Clothing}/>
     </>
   );
 }
