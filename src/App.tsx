@@ -4,10 +4,12 @@ import { ObjectList } from './components/ObjectsList';
 import { Button } from './components/Button';
 import { ProductList } from './components/ProductList/ProductList';
 import { UserForm } from './components/UserForm/UserForm';
+import { User } from './components/UserForm/UserForm';
 
 function App() {
-  const handleSubmit = () => {
-    console.log(name, age);
+  // priima duomenis is vaikinio elemento:
+  const handleUserForm = (user: User) => {
+    console.log(user.name, user.age);
   };
 
   return (
@@ -45,7 +47,7 @@ function App() {
           { name: 'Pomidorai', price: '2.99 €', isOnSale: true },
         ]}
       />
-      <UserForm handleSubmit={handleSubmit} />
+      <UserForm onSubmit={handleUserForm} />
     </>
   );
 }
